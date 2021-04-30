@@ -26,10 +26,7 @@
 
 /* Header > TitleDiv */
 .header .titleDiv {
-  display: flex;
   color: #fff;
-  justify-content: space-around;
-  align-items: center;
 }
 
 /* Header > TitleDiv > H1 */
@@ -37,12 +34,6 @@
   font-size: 15px;
   color: #fff;
   margin: 0px 20px;
-}
-
-/* Header > TitleDiv > p */
-.header .titleDiv p {
-  font-size: 14px;
-  font-weight: bold;
 }
 
 /* Header > searchDiv */
@@ -185,4 +176,51 @@ hr {
   border: none;
   color: #fff;
   border-radius: 3px;
+}
+
+@media (max-width: 960px) {
+  /* Container > addSection > addSectionTitle h2*/
+  .container .addSection .addSectionTitle h2 {
+    text-align: center;
+  }
+  .container {
+    width: 98%;
+    margin: 0px auto;
+  }
+
+  .header .titleDiv h1 {
+    font-size: 20px;
+    padding: 10px 0px;
+  }
+
+  .container .showNoteSection .showNoteField {
+    grid-template-areas: "auto auto";
+  }
+
+  /* Container > showNotesSection > showNoteTitle > ... */
+  .container .showNoteSection .showNoteTitle p {
+    text-align: center;
+  }
+
+  /* Container > addSection > addSectionInputDiv > form > button */
+  .container .addSection .addSectionInputDiv form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 426px) {
+  .header {
+    flex-direction: column;
+  }
+  .container .showNoteSection .showNoteField {
+    grid-template-areas: "auto";
+  }
+
+  /* Header > searchDiv */
+  .header .searchDiv {
+    margin: 0px;
+  }
+  .header .titleDiv h1 {
+    margin: 0;
+  }
 }
