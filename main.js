@@ -1,7 +1,6 @@
 showNotes();
 //Add Note Code
 document.getElementById("addNoteBtn").addEventListener("click", function (e) {
-  e.preventDefault();
   let getNote = document.getElementById("addNoteText");
   if (getNote.value != "") {
     let notes = localStorage.getItem("notes");
