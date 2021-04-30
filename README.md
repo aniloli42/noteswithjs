@@ -1,4 +1,4 @@
-# Notw with Js
+# Note with Js
 This is the simple note taking website code.
 
 ## Includes
