@@ -1,0 +1,188 @@
+/* Common Variables */
+:root {
+  --comClr: rgba(216, 224, 224, 0.712);
+}
+
+/* Import */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@600&display=swap");
+
+/* Universal Code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #234;
+  padding: 6px 0px;
+}
+
+/* Header > TitleDiv */
+.header .titleDiv {
+  display: flex;
+  color: #fff;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Header > TitleDiv > H1 */
+.header .titleDiv h1 {
+  font-size: 15px;
+  color: #fff;
+  margin: 0px 20px;
+}
+
+/* Header > TitleDiv > p */
+.header .titleDiv p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Header > searchDiv */
+.header .searchDiv {
+  margin-right: 10px;
+}
+
+/* Header > searchDiv > input:text */
+.header .searchDiv form input[type="text"] {
+  height: 30px;
+  width: 200px;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+}
+
+.header .searchDiv form input[type="text"]::placeholder {
+  color: gray;
+}
+
+/* Container */
+.container {
+  margin: 0 auto;
+  width: 960px;
+  margin-top: 15px;
+}
+
+/* Container > addSection */
+
+/* Container > addSection > addSectionTitle*/
+.container .addSection .addSectionTitle {
+  margin: 10px 0px 5px;
+}
+
+/* Container > addSection > addSectionTitle h2*/
+.container .addSection .addSectionTitle h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Container > addSection > addSectionInputDiv */
+.container .addSection .addSectionInputDiv {
+  border: 2px solid;
+  border-color: var(--comClr);
+  border-radius: 6px;
+  padding: 15px;
+  margin: 5px 0px;
+}
+
+/* Container > addSection > addSectionInputDiv > form */
+.container .addSection .addSectionInputDiv form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Container > addSection > addSectionInputDiv > form > textarea */
+.container .addSection .addSectionInputDiv form textarea {
+  margin: 6px 0px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  height: 100px;
+  border: 2px solid;
+  border-color: var(--comClr);
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Container > addSection > addSectionInputDiv > form > p */
+.container .addSection .addSectionInputDiv form p {
+  font-weight: bold;
+}
+
+/* Container > addSection > addSectionInputDiv > form > button */
+.container .addSection .addSectionInputDiv form button {
+  background-color: #0279fe;
+  outline: none;
+  padding: 7px 10px;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+}
+
+/* hr */
+hr {
+  border-top: 1px solid var(--comClr);
+}
+
+/* Container > showNotesSection */
+.container .showNoteSection {
+  margin-top: 15px;
+}
+
+/* Container > showNotesSection > showNoteTitle > ... */
+.container .showNoteSection .showNoteTitle p {
+  padding: 10px 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Container > showNotesSection > showNoteField > ... */
+.container .showNoteSection .showNoteField {
+  margin: 10px 0px;
+  display: grid;
+  grid-template-areas: "auto auto auto auto";
+  grid-gap: 4px;
+}
+
+.container .showNoteSection .showNoteField p {
+  font-size: 14px;
+  color: rgb(114, 97, 97);
+}
+
+/* Show note */
+.NotesDiv {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+  width: inherit;
+}
+
+.container .NotesDiv p:first-child {
+  font-weight: bold;
+}
+
+.container .NotesDiv p:nth-child(2) {
+  color: #000;
+  margin: 10px 0px;
+}
+
+.container .NotesDiv button {
+  background-color: #0279fe;
+  outline: none;
+  padding: 7px 10px;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+}
