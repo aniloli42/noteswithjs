@@ -53,6 +53,7 @@ function deleteNote(index) {
 
 // search notes
 document.getElementById("searchTxt").addEventListener("input", function (e) {
+  e.preventdefault();
   let searchTxt = e.target.value.toLowerCase();
   let notesDiv = document.getElementsByClassName("NotesDiv");
   Array.from(notesDiv).forEach(function (element) {
