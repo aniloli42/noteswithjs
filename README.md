@@ -8,3 +8,5 @@ This is the simple note taking website code.
 
 ## Overview
 This website include the note making, removing and searching functionalities.
+
+***See Project:***[Click Here](https://raw.githubusercontent.com/aniloli42/noteswithjs/main/index.html)
