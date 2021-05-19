@@ -1,10 +1,10 @@
+/* Import */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@600&display=swap");
+
 /* Common Variables */
 :root {
   --comClr: rgba(216, 224, 224, 0.712);
 }
-
-/* Import */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@600&display=swap");
 
 /* Universal Code */
 * {
@@ -12,9 +12,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Noto Sans KR", sans-serif;
-  font-family: "Roboto", sans-serif;
 }
-
+body {
+  position: relative;
+  height: 100wh;
+  width: 100wv;
+}
 /* Header */
 .header {
   display: flex;
@@ -145,7 +148,7 @@ hr {
 
 /* Container > showNotesSection > showNoteTitle > ... */
 .container .showNoteSection .showNoteTitle p {
-  padding: 10px 0px;
+  padding: 5px 0px;
   font-size: 20px;
   font-weight: bold;
 }
@@ -154,13 +157,16 @@ hr {
 .container .showNoteSection .showNoteField {
   margin: 10px 0px;
   display: grid;
-  grid-template-areas: "auto auto auto auto";
+  grid-template-columns: repeat(3, minmax(150px, auto));
+  grid-auto-rows: auto;
   grid-gap: 4px;
 }
 
 .container .showNoteSection .showNoteField p {
   font-size: 14px;
   color: rgb(114, 97, 97);
+  margin: 5px auto;
+  word-wrap: break-word;
 }
 
 /* Show note */
@@ -173,6 +179,7 @@ hr {
 
 .container .NotesDiv p:first-child {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .container .NotesDiv p:nth-child(2) {
@@ -187,6 +194,111 @@ hr {
   border: none;
   color: #fff;
   border-radius: 3px;
+  margin-right: 5px;
+}
+
+/* Update Div */
+.updateSectionDiv {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100wv;
+  height: 100wh;
+  display: none;
+  justify-content: center;
+}
+
+.visibleDiv {
+  display: flex;
+}
+
+.updateSectionDiv form {
+  background-color: #fff;
+  position: sticky;
+  top: 10px;
+  margin: 0 auto;
+  width: 800px;
+  height: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.288);
+}
+
+.updateSectionDiv form .update-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.updateSectionDiv form .update-title p {
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(114, 97, 97);
+}
+
+.updateSectionDiv form .update-title div.crossBtn {
+  border: 2px solid #fff;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  user-select: none;
+}
+
+.updateSectionDiv form .update-title div.crossBtn:hover {
+  background-color: crimson;
+  border-color: crimson;
+  color: #fff;
+  cursor: pointer;
+}
+
+.updateSectionDiv form input#editNoteTitle {
+  display: block;
+  width: 300px;
+  min-width: 100%;
+  margin: 6px 0px;
+  border: 2px solid;
+  border-color: var(--comClr);
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Container > addSection > addSectionInputDiv > form > textarea */
+.updateSectionDiv form textarea {
+  display: block;
+  width: 300px;
+  min-width: 100%;
+  margin: 6px 0px;
+  max-width: 50%;
+  min-height: 100px;
+  height: 100px;
+  border: 2px solid;
+  border-color: var(--comClr);
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Container > addSection > addSectionInputDiv > form > button */
+.updateSectionDiv form button {
+  background-color: #0279fe;
+  width: 100%;
+  outline: none;
+  padding: 7px 10px;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.visibleDiv {
+  display: inline-flex;
 }
 
 @media (max-width: 960px) {
@@ -205,7 +317,7 @@ hr {
   }
 
   .container .showNoteSection .showNoteField {
-    grid-template-areas: "auto auto";
+    grid-template-columns: repeat(2, minmax(150px, auto));
   }
 
   /* Container > showNotesSection > showNoteTitle > ... */
@@ -217,6 +329,11 @@ hr {
   .container .addSection .addSectionInputDiv form button {
     width: 100%;
   }
+
+  .updateSectionDiv form {
+    width: 60%;
+    height: 250px;
+  }
 }
 
 @media (max-width: 426px) {
@@ -224,7 +341,7 @@ hr {
     flex-direction: column;
   }
   .container .showNoteSection .showNoteField {
-    grid-template-areas: "auto";
+    grid-template-columns: 1fr;
   }
 
   /* Header > searchDiv */
@@ -233,5 +350,10 @@ hr {
   }
   .header .titleDiv h1 {
     margin: 0;
+  }
+
+  .updateSectionDiv form {
+    width: 90%;
+    height: 250px;
   }
 }

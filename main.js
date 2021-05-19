@@ -2,17 +2,19 @@ showNotes();
 //Add Note Code
 document.getElementById("addNoteBtn").addEventListener("click", function (e) {
   e.preventDefault();
-  let getNote = document.getElementById("addNoteText");
-  if (getNote.value != "") {
+  let getNoteTitle = document.getElementById("addNoteTitle");
+  let getNoteText = document.getElementById("addNoteText");
+  if (getNoteText.value != "" && getNoteTitle.value != "") {
     let notes = localStorage.getItem("notes");
     if (notes == null) {
       notesObj = [];
     } else {
       notesObj = JSON.parse(notes);
     }
-    notesObj.push(getNote.value);
+    notesObj.push({ title: getNoteTitle.value, text: getNoteText.value });
     localStorage.setItem("notes", JSON.stringify(notesObj));
-    getNote.value = "";
+    getNoteText.value = "";
+    getNoteTitle.value = "";
     showNotes();
   } else {
     alert("input Data");
@@ -30,9 +32,8 @@ function showNotes() {
   } else {
     notesObj = JSON.parse(localStorage.getItem("notes"));
     notesObj.forEach(function (element, index) {
-      html += `<div class='NotesDiv'><p>Note ${
-        index + 1
-      }</p><p>${element}</p><button id="${index}" onclick='deleteNote(this.id)'>Delete Note</button></div>`;
+      let { title, text } = element;
+      html += `<div class='NotesDiv'><p>${title}</p><p>${text}</p><button id="${index}" onclick='editNote(this.id)'>Edit</button><button id="${index}" onclick='deleteNote(this.id)'>Delete</button></div>`;
     });
     showNoteField.innerHTML = html;
   }
@@ -51,13 +52,64 @@ function deleteNote(index) {
   showNotes();
 }
 
+// Edit Note Div
+let editDiv = document.createElement("div");
+editDiv.innerHTML = `<div class="updateSectionDiv">
+<form>
+<div class="update-title">
+  <p>Update Note</p><div class="crossBtn">x</div></div>
+  <input type="text" id="editNoteTitle" />
+  <textarea id="editNoteText"></textarea>
+  <button id="updateNoteBtn">Update</button>
+</form>
+</div>`;
+document.getElementsByTagName("body")[0].appendChild(editDiv);
+
+// Edit Function
+function editNote(index) {
+  let notes = localStorage.getItem("notes");
+  notesObj = JSON.parse(notes);
+  let { title, text } = notesObj[index];
+  let editTitleField = document.querySelector("#editNoteTitle");
+  editTitleField.value = title;
+  let editTextField = document.querySelector("#editNoteText");
+  editTextField.value = text;
+  let visibleDiv = document.querySelector(".updateSectionDiv");
+  visibleDiv.classList.add("visibleDiv");
+
+  //   Update Button Code
+  document.querySelector("#updateNoteBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (editTitleField.value == "" || editTitleField.value == "") {
+      alert("Input Data or Use Crossmark");
+    } else {
+      title = editTitleField.value;
+      text = editTextField.value;
+      notesObj[index].title = title;
+      notesObj[index].text = text;
+      localStorage.setItem("notes", JSON.stringify(notesObj));
+      visibleDiv.classList.remove("visibleDiv");
+      showNotes();
+    }
+  });
+  // End Update Button
+
+  // Cross Btn Code
+  document.querySelector(".crossBtn").addEventListener("click", (e) => {
+    let disableDiv = e.target.parentNode.parentNode.parentNode;
+    disableDiv.classList.remove("visibleDiv");
+  });
+  // End Cross Btn Code
+}
+
 // search notes
 document.getElementById("searchTxt").addEventListener("input", function (e) {
   let searchTxt = e.target.value.toLowerCase();
   let notesDiv = document.getElementsByClassName("NotesDiv");
-  Array.from(notesDiv).forEach(function (element) {
-    let getDiv = element.getElementsByTagName("p")[1].innerText.toLowerCase();
-    if (getDiv.includes(searchTxt)) {
+  Array.from(notesDiv).forEach((element) => {
+    let getDivTitle = element.getElementsByTagName("p")[0].innerText.toLowerCase();
+    let getDivText = element.getElementsByTagName("p")[1].innerText.toLowerCase();
+    if (getDivTitle.includes(searchTxt) || getDivText.includes(searchTxt)) {
       element.style.display = "block";
     } else {
       element.style.display = "none";
