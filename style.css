@@ -92,6 +92,17 @@
   align-items: flex-start;
 }
 
+/* Container > addSection > addSectionInputDiv > form > input#addNoteTitle */
+.container .addSection .addSectionInputDiv form input#addNoteTitle {
+  margin: 6px 0px;
+  width: 100%;
+  border: 2px solid;
+  border-color: var(--comClr);
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 /* Container > addSection > addSectionInputDiv > form > textarea */
 .container .addSection .addSectionInputDiv form textarea {
   margin: 6px 0px;
