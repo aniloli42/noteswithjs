@@ -15,8 +15,8 @@
 }
 body {
   position: relative;
-  height: 100wh;
-  width: 100wv;
+  height: 100vh;
+  width: 100vw;
 }
 /* Header */
 .header {
@@ -29,14 +29,12 @@ body {
 
 /* Header > TitleDiv */
 .header .titleDiv {
-  color: #fff;
+  margin-left: 20px;
 }
 
 /* Header > TitleDiv > H1 */
 .header .titleDiv h1 {
-  font-size: 15px;
   color: #fff;
-  margin: 0px 20px;
 }
 
 /* Header > searchDiv */
@@ -46,17 +44,18 @@ body {
 
 /* Header > searchDiv > input:text */
 .header .searchDiv form input[type="text"] {
-  height: 30px;
-  width: 200px;
-  border-radius: 4px;
-  padding: 5px 8px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px 10px;
   font-weight: 500;
   font-size: 14px;
   outline: none;
+  border: none;
 }
 
 .header .searchDiv form input[type="text"]::placeholder {
-  color: gray;
+  color: rgb(204, 201, 201);
+  font-weight: bold;
 }
 
 /* Container */
@@ -204,10 +203,11 @@ hr {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 100wv;
-  height: 100wh;
+  width: 100vw;
+  height: 100vh;
   display: none;
   justify-content: center;
+  background-color: rgba(0,0,0,.5);
 }
 
 .visibleDiv {
@@ -217,7 +217,8 @@ hr {
 .updateSectionDiv form {
   background-color: #fff;
   position: sticky;
-  top: 10px;
+  top: 0;
+  transform: translateY(100px);
   margin: 0 auto;
   width: 800px;
   height: 250px;
@@ -311,10 +312,6 @@ hr {
     margin: 0px auto;
   }
 
-  .header .titleDiv h1 {
-    font-size: 20px;
-    padding: 10px 0px;
-  }
 
   .container .showNoteSection .showNoteField {
     grid-template-columns: repeat(2, minmax(150px, auto));
@@ -336,10 +333,16 @@ hr {
   }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 576px) {
   .header {
     flex-direction: column;
   }
+  
+  .header .titleDiv {
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
   .container .showNoteSection .showNoteField {
     grid-template-columns: 1fr;
   }
