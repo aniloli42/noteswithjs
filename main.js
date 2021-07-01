@@ -57,7 +57,7 @@ let editDiv = document.createElement("div");
 editDiv.innerHTML = `<div class="updateSectionDiv">
 <form>
 <div class="update-title">
-  <p>Update Note</p><div class="crossBtn">x</div></div>
+  <p>Update Note</p><div class="crossBtn"></div></div>
   <input type="text" id="editNoteTitle" />
   <textarea id="editNoteText"></textarea>
   <button id="updateNoteBtn">Update</button>
@@ -107,8 +107,12 @@ document.getElementById("searchTxt").addEventListener("input", function (e) {
   let searchTxt = e.target.value.toLowerCase();
   let notesDiv = document.getElementsByClassName("NotesDiv");
   Array.from(notesDiv).forEach((element) => {
-    let getDivTitle = element.getElementsByTagName("p")[0].innerText.toLowerCase();
-    let getDivText = element.getElementsByTagName("p")[1].innerText.toLowerCase();
+    let getDivTitle = element
+      .getElementsByTagName("p")[0]
+      .innerText.toLowerCase();
+    let getDivText = element
+      .getElementsByTagName("p")[1]
+      .innerText.toLowerCase();
     if (getDivTitle.includes(searchTxt) || getDivText.includes(searchTxt)) {
       element.style.display = "block";
     } else {
