@@ -1,5 +1,6 @@
 # Note with Js
 
+![PC version of Notes with Js](imgs/PC_Version.png)
 Note with Js is the website where we can quickly add notes. This website is made with pure HTML, CSS and Javascript.
 
 ## Technologies
