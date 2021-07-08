@@ -18,7 +18,7 @@ Note with Js is the website where we can quickly add notes. This website is made
 
 ## Demo
 
-**_See Demo:_** [Click Here](https://rawcdn.githack.com/aniloli42/noteswithjs/9081b842d84aff4e2659e6b6321be27b37f56b46/index.html)
+**_See Demo:_** [Click Here](https://raw.githack.com/aniloli42/noteswithjs/master/index.html)
 
 ## Authors
 
